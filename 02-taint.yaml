@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: taint
+  labels:
+    purpose: "taint-demo"
+spec:
+  nodeSelector:
+    topology.kubernetes.io/zone: us-east-1a
+  containers:
+  - name: nginx
+    image: nginx
+
+# RUN This Command before run this..
+# kubectl taint nodes node1 key1=value1:NoSchedule
+# Ex - kubectl taint nodes ip-192-168-43-212.ec2.internal hardware=gpu:NoSchedule
