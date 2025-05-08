@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: tolerations2
+  labels:
+    purpose: "tolerations-demo"
+spec:
+  containers:
+  - name: nginx
+    image: nginx
+  tolerations:
+  - key: "hardware"
+    operator: "Equal"
+    value: "gpu"
+    effect: "NoExecute"
+
+# Tolerations will not 100% gaurentee thats pod will run on the tainted nodes..
