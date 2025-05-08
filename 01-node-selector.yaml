@@ -1,0 +1,13 @@
+# Basic Selector
+apiVersion: v1
+kind: Pod
+metadata:
+  name: node-selector
+  labels:
+    purpose: "selector-demo"
+spec:
+  nodeSelector:
+    topology.kubernetes.io/zone: us-east-1c # if there is no worker nodes in 1c ,then it will be in PENDING status..
+  containers:
+  - name: nginx
+    image: nginx
